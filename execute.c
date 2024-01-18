@@ -11,6 +11,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
 	instruction_t opst[] = {
 		{"push", f_push}, {"pall", f_pall},
+		{"pint", f_pint},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
@@ -18,8 +19,6 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 
 	op = strtok(content, " \n\t");
 	if (op && op[0] == '#')
-		return (0);
-	if (op[0] == '/' && op[0] == '*')
 		return (0);
 	bus.arg = strtok(NULL, " \n\t");
 	while (opst[i].opcode && op)
